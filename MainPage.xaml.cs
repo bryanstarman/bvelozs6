@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using bvelozs6.Vistas;
+using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 
 namespace bvelozs6
@@ -22,7 +23,17 @@ namespace bvelozs6
             estud= new ObservableCollection<Estudiante>(mostrarEst);
             listaEstudiantes.ItemsSource = estud;
         }
+        private void btnSaltar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new vAgregar());
+        }
 
-       
+        private void listaEstudiantes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var objetoestudiante = (Estudiante)e.SelectedItem;
+            Navigation.PushAsync(new vActualizar(objetoestudiante));
+        }
+
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bvelozs6
 {
-    internal class Estudiante
+    public class Estudiante
     {
         public int codigo { get; set; }
         public string nombre { get; set; }

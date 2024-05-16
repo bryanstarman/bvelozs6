@@ -5,25 +5,54 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label 
-            Text="Consumo de servicio web - GET"
-            FontSize="20"
-            HorizontalTextAlignment="Center"/>
-            <ListView x:Name="listaEstudiantes">
+            <Label
+        Text="LISTA DE ESTUDIANTES"
+        VerticalOptions="Center"
+        HorizontalOptions="Center" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="90"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Codigo"/>
+                <Label Grid.Column="1" Grid.Row="0" Text="Nombre"/>
+                <Label Grid.Column="2" Grid.Row="0" Text="Apellido"/>
+                <Label Grid.Column="3" Grid.Row="0" Text="Edad"/>
+            </Grid>
+            <ListView x:Name="listaEstudiantes" ItemSelected="listaEstudiantes_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label x:Name="lblNombre" Text="{Binding nombre}"/>
-                                <Label x:Name="lblApellido" Text="{Binding apellido}"/>
-
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="lblCodigo" Grid.Column="0"  Text="{Binding codigo}"/>
+                                    <Label x:Name="lblNombre" Grid.Column="1"  Text="{Binding nombre}"/>
+                                    <Label x:Name="lblApellido" Grid.Column="2"  Text="{Binding apellido}"/>
+                                    <Label x:Name="lblEdad" Grid.Column="3"  Text="{Binding edad}"/>
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
             </ListView>
-
+            <Button x:Name="btnSaltar"
+            Text="Agregar"
+            Clicked="btnSaltar_Clicked"></Button>
         </VerticalStackLayout>
 
     </ScrollView>
